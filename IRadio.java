@@ -1,107 +1,83 @@
-package com.uvg.ayed;
-
-/*************************************************
- * Interfaz de radio (IRadio.java)
- * Enero del 2022
- * M閠odos de la clase Radio
- * @author MAAG
- * @author Rafael Dubois 19093
- * @author Josue Argueta 211024
-**************************************************/
-
+/**
+ * Interfaz que predefine las caracteristicas globales que posee una radio
+ * sencilla.
+ * 
+ * @author Moises Antonio Alonso Gonzales
+ * @since 1.0, 16/01/2022
+ * @version 1.0
+ */
 public interface IRadio {
-	
-	/***
-	 * Obtiene el estado del radio si esta encendio o apagado
-	 * @return Devuelve true si esta encendido y false si esta apagado
+	/**
+	 * Devuelve el estado general de la radio.
+	 * 
+	 * @return
 	 */
-	boolean getStatus();
-	
+	public boolean getStatus();
 
-	/***
-	 * Metodo que sirve para apagar o encender el radio, si esta apagado lo enciendo
-	 * si esta encendido lo apaga.
+	/**
+	 * Permite ciertas funciones de la radio.
 	 */
-	void switchButton();
-	
-	
-	/***
-	 * Al mandar a llamar a este metodo se cambia el modo del radio si esta en AM lo cambia
-	 * a FM y viceversa o cualquier otro estado actual
-	 */
-	void changeMode();
-	
-	
-	/***
-	 * Obtiene el modo actual del radio, teniendo los siguientes codigos
-	 * 0 -> AM
-	 * 1 -> FM
-	 * @return devuelve 0 si esta en AM o 1 si esta en FM
-	 */
-	int getActualMode();
-	
-	
-	/***
-	 * Guarda una emisora AM en el slot indicado
-	 * @param slot es un numero del 1 al 12 en donde se guardara la emisora
-	 * @param freq Es la emisora que se desea guardar las cuales van desde la 530 a 1610 en multiplos de 10
-	 */
-	void saveInAM(int slot, int freq);
-	
-	
-	/***
-	 * Devuelve la emisora que fue guardad en el determinado slot
-	 * @param slot el slot en donde se guardo la emisora
-	 * @return la frequencia de la emisora guardada
-	 */
-	int getSavedFreqAM(int slot);
-	
-	
-	/***
-	 * Guarda una emisora en FM en el slot indicado
-	 * @param slot es un numero del 1 al 12 en donde se guardara la emisora
-	 * @param freq Es la emisora que se desa guardar las cuales van desde la 87.9 hasta la 107.9 en valores de 0.2
-	 */
-	void saveInFM(int slot, double freq);
-	
-	
-	/***
-	 * Devuelve la emisora que fue guardad en el determinado slot
-	 * @param slot el slot en donde se guardo la emisora
-	 * @return la frequencia de la emisora guardada
-	 */
-	double getSavedFreqFM(int slot);
-	
+	public void switchButton();
 
-	/***
-	 * Devuelve la frecuencia actual en AM
-	 * @return Frecuencia actual en AM
+	/**
+	 * Permite cambiar entre emisoras.
 	 */
-	int getActualFreqAM();
-	
-	
-	/***
-	 * Devuelve la frecuencia atual en FM
-	 * @return Frecuencia actual en FM
-	 */
-	double getActualFreqFM();
-	
+	public void changeMode();
 
-	/***
-	 * Avanza las emisoras hacia adelante en los multiplos definidos para AM y FM
+	/**
+	 * Retorna la emisora actual de la radio.
 	 */
-	void moveForward();
-	
+	public int getActualMode();
 
-	/***
-	 * Regresa las emisoras hacia atras en los multiplos definidos para AM y FM
+	/**
+	 * Almacena la estaci贸n en el apartado de AM.
 	 */
-	void moveBackward();
-	
+	public void saveInAM();
 
-	/***
-	 * Busca automaticamente hacia adelante las emisoras
+	/**
+	 * Retorna las estaciones almacenadas de AM.
+	 * 
+	 * @param slot
+	 * @return
 	 */
-	void seek();
+	public int getSavedFreqAM(int slot);
 
+	/**
+	 * Almacena la estaci贸n en el apartado de FM.
+	 */
+	public void saveInFM();
+
+	/**
+	 * Devuelve las estaciones almacenadas de FM.
+	 * 
+	 * @return
+	 */
+	public double getSavedFreqFM();
+
+	/**
+	 * Devuelve la estaci贸n actual de AM.
+	 * 
+	 * @return
+	 */
+	public int getActualFreqAM();
+
+	/**
+	 * Devuelve la estaci贸n actual de FM.
+	 */
+	public double getActualFreqFM();
+
+	/**
+	 * Avanza a la siguiente estaci贸n.
+	 */
+	public void moveForward();
+
+	/**
+	 * Regresa a la estaci贸n previa.
+	 */
+	public void moveBackward();
+
+	/**
+	 * Buscan una estaci贸n en particular.
+	 */
+	public void seek();
 }
