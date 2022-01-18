@@ -7,17 +7,18 @@
  */
 public class Radio implements IRadio {
 	private boolean status = false;
-	private int mode = 0;
-	/** 0 es AM y 1 es FM, con esto el default es AM */
-	private int AM = 530;
-	/** El default en el modo AM es 530 */
-	private double FM = 87.9;
-	/** El default en el modo FM es 87.9 */
+	private int mode; // 0 = AM, 1 = FM, default = AM
+	private int AM = 530; // Defau;t emisora = 530
+	private double FM = 87.9; // Default emisora = 87.9
 	private int[] AMsaved = new int[12];
 	/** Lista de 12 estaciones AM guardadas, comienza vacía */
 	private double[] FMsaved = new double[12];
 
 	/** Lista de 12 estaciones FM guardadas, comienza vacía */
+
+	public Radio() {
+		this.mode = 0;
+	}
 
 	/**
 	 * Implementación de la interfaz IRadio.
