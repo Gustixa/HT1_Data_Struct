@@ -16,8 +16,8 @@ public class Radio implements IRadio {
 
 	/** Lista de 12 estaciones FM guardadas, comienza vacía */
 
-	public Radio() {
-		this.mode = 0;
+	public Radio(int mode) {
+		this.mode = mode;
 	}
 
 	/**

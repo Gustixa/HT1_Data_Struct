@@ -47,10 +47,12 @@ public class Main {
 
         switch (options) {
             case 1:
-                new Radio();
+                // AM
+                new Radio(1);
                 break;
             default:
-                new Radio();
+                // FM
+                new Radio(0);
                 break;
         }
     }
