@@ -3,8 +3,8 @@ import java.io.IOException;
 /**
  * Clase que simula el funcionamiento del controlador, en un modelo M-V-C.
  * 
- * @author Samuel Argueta, Rafael Pappa.
- * @since 1.0, 16/01/2022
+ * @author Samuel Argueta, Rafael Pappa, Sebastian Estrada.
+ * @since 1.0, 19/01/2022
  * @version 1.0
  */
 public class Main {
@@ -44,15 +44,45 @@ public class Main {
     private static void radio_on(Interaction view) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.
         int options = view.input_verification("radio_options");
-
+        Radio radiecito;
         switch (options) {
             case 1:
                 // AM
-                new Radio(1);
+                radiecito = new Radio(1);
+                menu_radio(view,radiecito.getActualMode());
                 break;
             default:
                 // FM
-                new Radio(0);
+                radiecito = new Radio(0);
+                menu_radio(view,radiecito.getActualMode());
+                break;
+        }
+    }
+    private static void menu_radio(Interaction view, int mode) throws IOException, InterruptedException {
+        new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+        int options = view.input_verification("menu_radioAM");
+        if (mode == 1){
+            options = view.input_verification("menu_radioFM");
+        }
+        
+
+        switch (options) {
+            case 1:
+                // menu 1
+                break;
+            case 2:
+                // menu 2
+                break;
+            case 3:
+                // menu 3
+                break;
+            case 4:
+                // menu 4
+                break;
+            case 5:
+                // menu 5
+                break;
+            default:
                 break;
         }
     }
