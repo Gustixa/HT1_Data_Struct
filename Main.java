@@ -52,6 +52,7 @@ public class Main {
         int options = 0;
 
         do {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             if (radio.getActualMode() == 1) {
                 options = view.input_verification("menu_radio", "FM");
             } else if (radio.getActualMode() == 0) {
