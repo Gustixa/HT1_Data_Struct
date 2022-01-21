@@ -18,13 +18,18 @@ public class Main {
      */
     public static void main(String[] args) throws IOException, InterruptedException {
         Interaction view = new Interaction();
-        Radio radio = new Radio(0);
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.
         view.welcome();
-        int options = view.input_verification("start_options");// see input_verification for more info.
+        start_mode(view, 0);
+
+    }
+
+    private static void start_mode(Interaction view, int value) throws IOException, InterruptedException {
+        Radio radio = new Radio(value);
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.
+        int options = view.input_verification("start_options", "NONE");// see input_verification for more info.
         switch (options) {
             case 1:
-                radio_on(view, radio);
+                menu_radio(view, radio);
                 break;
 
             default:
@@ -34,70 +39,58 @@ public class Main {
     }
 
     /**
-     * Este metodo sirve para poder proseguir con la serie de acciones que son
-     * coherentes para el sistema. Es mejor tenerlo en métodos separados para no
-     * tener un solo desorde (aunque de por si, ya lo parece)
+     * Método para poder realizar alguna de las funciones de la radio.
      * 
-     * @param view
+     * @param view:  Interaction
+     * @param radio: Radio
      * @throws IOException
      * @throws InterruptedException
      */
-    private static void radio_on(Interaction view, Radio radio) throws IOException, InterruptedException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.
-        boolean next_step = false;
-        System.out.println(radio.getActualMode());
-        do {
-            int options = view.input_verification("radio_options");
-            // Verificar que no seleccione un emisora ya puesta.
-            if (radio.getActualMode() == 0 && options == 1) {
-                next_step = false;
-            } else if (radio.getActualMode() == 1 && options == 2) {
-                next_step = false;
-            } else {
-                next_step = true;
-            }
+    private static void menu_radio(Interaction view, Radio radio) throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        boolean back = false;
+        int options = 0;
 
+        do {
+            if (radio.getActualMode() == 1) {
+                options = view.input_verification("menu_radio", "FM");
+            } else if (radio.getActualMode() == 0) {
+                options = view.input_verification("menu_radio", "AM");
+            }
             switch (options) {
                 case 1:
-                    // AM
-
-                    menu_radio(view, radio.getActualMode());
+                    // Cambio de exmisora (AM - FM o FM - AM)
+                    radio.changeMode();
+                    break;
+                case 2:
+                    // Mover
+                    break;
+                case 3:
+                    // Guardar emisora
+                    break;
+                case 4:
+                    // Mostrar emisoras guardadas
                     break;
                 default:
-                    // FM
-
-                    menu_radio(view, radio.getActualMode());
+                    // Apagar el radio.
+                    start_mode(view, radio.getActualMode());
                     break;
             }
-        } while (!next_step);
-
+        } while (options != 5);
     }
 
-    private static void menu_radio(Interaction view, int mode) throws IOException, InterruptedException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        int options = view.input_verification("menu_radioAM");
-        if (mode == 1) {
-            options = view.input_verification("menu_radioFM");
-        }
-
-        switch (options) {
-            case 1:
-                // menu 1
-                break;
-            case 2:
-                // menu 2
-                break;
-            case 3:
-                // menu 3
-                break;
-            case 4:
-                // menu 4
-                break;
-            case 5:
-                // menu 5
-                break;
-            default:
-                break;
+    /**
+     * Metodo para no realizar un cambio tan repentino de la pantalla. Es decir,
+     * mantener la pantalla segun el tiempo (en milisegundos) que se le pase como
+     * parametro.
+     * 
+     * @param tiempo_espera: int
+     */
+    private static void esperar(int tiempo_espera) {
+        try {
+            Thread.sleep(tiempo_espera);
+        } catch (Exception e) {
+            System.out.println("Algo salio malo...");
         }
     }
 }

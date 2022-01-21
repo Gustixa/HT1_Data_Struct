@@ -20,14 +20,14 @@ public class Interaction {
     }
 
     /**
-     * 
+     * Método que muestra un mensaje indicando que se cierra el sistema.
      */
     public void end_sys() {
-        System.out.println("Se apago el simulador");
+        System.out.println("\nApagando el equipo...");
     }
 
     /**
-     * 
+     * Método que provee las 2 opciones principales del sistema.
      */
 
     private void start_options() {
@@ -37,7 +37,7 @@ public class Interaction {
     }
 
     /**
-     * 
+     * Método que muestra las emisoras que puede escoger el usuario.
      */
     private void radio_options() {
         System.out.println("Tipos de emisora");
@@ -48,25 +48,19 @@ public class Interaction {
     /**
      * 
      */
-    private void menu_radioFM() {
-        System.out.println("Menu de radio\n" +
-                "1. Cambiar de FM a AM\n" +
-                "2. Cambiar radio hacia arriba\n" +
-                "3. Guardar emisora\n" +
-                "4. Mostrar emisoras guardadas\n" +
-                "5. Apagar el radio\n");
-    }
+    private void menu_radio(String mensaje) {
+        System.out.println("Menu de radio");
+        if (mensaje.equals("AM")) {
+            System.out.println("1. Cambiar de AM a FM");
+        } else {
+            System.out.println("1. Cambiar de FM a AM");
+        }
 
-    /**
-     * 
-     */
-    private void menu_radioAM() {
-        System.out.println("Menu de radio\n" +
-                "1. Cambiar de AM a FM\n" +
-                "2. Cambiar radio hacia arriba\n" +
+        System.out.println("2. Cambiar radio hacia arriba\n" +
                 "3. Guardar emisora\n" +
                 "4. Mostrar emisoras guardadas\n" +
                 "5. Apagar el radio\n");
+
     }
 
     /**
@@ -77,7 +71,7 @@ public class Interaction {
      * @return input_user, int. Devuelve la selección que tomo el usuario, la cual
      *         será para poder seguir en la secuencia de pasos, segun su selección.
      */
-    public int input_verification(String menu_selection) {
+    public int input_verification(String menu_selection, String emisora) {
         int amount_options = 0, input_user = 0;
         boolean next_step = false;
         do {
@@ -87,11 +81,8 @@ public class Interaction {
             } else if (menu_selection.equals("radio_options")) {
                 radio_options();
                 amount_options = 2;
-            } else if (menu_selection.equals("menu_radioFM")) {
-                menu_radioFM();
-                amount_options = 5;
-            } else if (menu_selection.equals("menu_radioAM")) {
-                menu_radioAM();
+            } else if (menu_selection.equals("menu_radio")) {
+                menu_radio(emisora);
                 amount_options = 5;
             }
             try {

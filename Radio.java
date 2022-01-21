@@ -33,7 +33,7 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public boolean getStatus() {
-		return true;
+		return status;
 	}
 
 	/**
