@@ -57,15 +57,15 @@ public class Main {
      */
     private static void menu_radio(Interaction view, Radio radio) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        boolean back = false;
         int options = 0;
 
         do {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            if (radio.getActualMode() == 1) {
-                options = view.input_verification("menu_radio", "FM");
-            } else if (radio.getActualMode() == 0) {
+            // Indicar como es que se debe presentar el menu de acciones.
+            if (radio.getActualMode() == 0) {
                 options = view.input_verification("menu_radio", "AM");
+            } else if (radio.getActualMode() == 1) {
+                options = view.input_verification("menu_radio", "FM");
             }
             switch (options) {
                 case 1:
