@@ -23,6 +23,15 @@ public class Main {
 
     }
 
+    /**
+     * Método que ayuda en cuanto a inicializar el simulador o terminarlo
+     * instantaneamente.
+     * 
+     * @param view:  Interaction
+     * @param value: int
+     * @throws IOException
+     * @throws InterruptedException
+     */
     private static void start_mode(Interaction view, int value) throws IOException, InterruptedException {
         Radio radio = new Radio(value);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.

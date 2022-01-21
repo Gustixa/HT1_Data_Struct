@@ -46,7 +46,7 @@ public class Interaction {
     }
 
     /**
-     * 
+     * Método que muestra las acciones que se pueden realizar en la radio.
      */
     private void menu_radio(String mensaje) {
         System.out.println("Menu de radio");
@@ -68,6 +68,8 @@ public class Interaction {
      * correctas.
      * 
      * @param menu_selection, String. Se pasa el tipo de menu que se desea mostrar.
+     * @param emisora:        String, indica el de opciones que se deben mostrar
+     *                        segun la emisora
      * @return input_user, int. Devuelve la selección que tomo el usuario, la cual
      *         será para poder seguir en la secuencia de pasos, segun su selección.
      */
