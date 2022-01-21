@@ -12,12 +12,16 @@ import javax.swing.JOptionPane;
  */
 public class Interaction {
     /**
-     * Este meteodo solamente despliega un mensaje de bienvenida al usuario.
+     * Este metodo solamente despliega un mensaje de bienvenida al usuario.
      */
     public void welcome() {
         System.out.println("Bienvenido al simulador del Radio!");
+
     }
 
+    /**
+     * 
+     */
     public void end_sys() {
         System.out.println("Se apago el simulador");
     }
@@ -41,22 +45,28 @@ public class Interaction {
         System.out.println("2. FM");
     }
 
-    private void menu_radioFM(){
-        System.out.println("Menu de radio\n"+
-                           "1. Cambiar de FM a AM\n"+
-                           "2. Cambiar radio hacia arriba\n"+
-                           "3. Guardar emisora\n"+
-                           "4. Mostrar emisoras guardadas\n"+
-                           "5. Apagar el radio\n");
+    /**
+     * 
+     */
+    private void menu_radioFM() {
+        System.out.println("Menu de radio\n" +
+                "1. Cambiar de FM a AM\n" +
+                "2. Cambiar radio hacia arriba\n" +
+                "3. Guardar emisora\n" +
+                "4. Mostrar emisoras guardadas\n" +
+                "5. Apagar el radio\n");
     }
 
-    private void menu_radioAM(){
-        System.out.println("Menu de radio\n"+
-                           "1. Cambiar de AM a FM\n"+
-                           "2. Cambiar radio hacia arriba\n"+
-                           "3. Guardar emisora\n"+
-                           "4. Mostrar emisoras guardadas\n"+
-                           "5. Apagar el radio\n");
+    /**
+     * 
+     */
+    private void menu_radioAM() {
+        System.out.println("Menu de radio\n" +
+                "1. Cambiar de AM a FM\n" +
+                "2. Cambiar radio hacia arriba\n" +
+                "3. Guardar emisora\n" +
+                "4. Mostrar emisoras guardadas\n" +
+                "5. Apagar el radio\n");
     }
 
     /**
@@ -77,10 +87,10 @@ public class Interaction {
             } else if (menu_selection.equals("radio_options")) {
                 radio_options();
                 amount_options = 2;
-            } else if (menu_selection.equals("menu_radioFM")){
+            } else if (menu_selection.equals("menu_radioFM")) {
                 menu_radioFM();
                 amount_options = 5;
-            }else if (menu_selection.equals("menu_radioAM")){
+            } else if (menu_selection.equals("menu_radioAM")) {
                 menu_radioAM();
                 amount_options = 5;
             }

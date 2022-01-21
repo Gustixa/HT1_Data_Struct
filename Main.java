@@ -18,12 +18,13 @@ public class Main {
      */
     public static void main(String[] args) throws IOException, InterruptedException {
         Interaction view = new Interaction();
+        Radio radio = new Radio(0);
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.
         view.welcome();
         int options = view.input_verification("start_options");// see input_verification for more info.
         switch (options) {
             case 1:
-                radio_on(view);
+                radio_on(view, radio);
                 break;
 
             default:
@@ -41,30 +42,43 @@ public class Main {
      * @throws IOException
      * @throws InterruptedException
      */
-    private static void radio_on(Interaction view) throws IOException, InterruptedException {
+    private static void radio_on(Interaction view, Radio radio) throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();// es meramente estético.
-        int options = view.input_verification("radio_options");
-        Radio radiecito;
-        switch (options) {
-            case 1:
-                // AM
-                radiecito = new Radio(1);
-                menu_radio(view,radiecito.getActualMode());
-                break;
-            default:
-                // FM
-                radiecito = new Radio(0);
-                menu_radio(view,radiecito.getActualMode());
-                break;
-        }
+        boolean next_step = false;
+        System.out.println(radio.getActualMode());
+        do {
+            int options = view.input_verification("radio_options");
+            // Verificar que no seleccione un emisora ya puesta.
+            if (radio.getActualMode() == 0 && options == 1) {
+                next_step = false;
+            } else if (radio.getActualMode() == 1 && options == 2) {
+                next_step = false;
+            } else {
+                next_step = true;
+            }
+
+            switch (options) {
+                case 1:
+                    // AM
+
+                    menu_radio(view, radio.getActualMode());
+                    break;
+                default:
+                    // FM
+
+                    menu_radio(view, radio.getActualMode());
+                    break;
+            }
+        } while (!next_step);
+
     }
+
     private static void menu_radio(Interaction view, int mode) throws IOException, InterruptedException {
-        new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         int options = view.input_verification("menu_radioAM");
-        if (mode == 1){
+        if (mode == 1) {
             options = view.input_verification("menu_radioFM");
         }
-        
 
         switch (options) {
             case 1:

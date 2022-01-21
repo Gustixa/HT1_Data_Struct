@@ -16,6 +16,11 @@ public class Radio implements IRadio {
 
 	/** Lista de 12 estaciones FM guardadas, comienza vacía */
 
+	/**
+	 * Costructor, inicializa la emisora.
+	 * 
+	 * @param mode, int. Tipo de emisora.
+	 */
 	public Radio(int mode) {
 		this.mode = mode;
 	}
@@ -38,9 +43,9 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public void switchButton() {
-		if (mode == 0){
+		if (mode == 0) {
 			mode = 1;
-		} else if (mode == 1){
+		} else if (mode == 1) {
 			mode = 0;
 		}
 	}
@@ -52,9 +57,9 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public void changeMode() {
-		if (mode == 0){
+		if (mode == 0) {
 			mode = 1;
-		} else if (mode == 1){
+		} else if (mode == 1) {
 			mode = 0;
 		}
 	}
@@ -78,8 +83,8 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public void saveInAM() {
-		for (int i = 0 ; i<AMsaved.length ; i++){
-			if (AMsaved[i] == null){
+		for (int i = 0; i < AMsaved.length; i++) {
+			if (AMsaved[i] == null) {
 				AMsaved[i] = AM;
 			}
 		}
@@ -104,8 +109,8 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public void saveInFM() {
-		for(int i = 0; i<FMsaved.length ; i++){
-			if (FMsaved[i] == null){
+		for (int i = 0; i < FMsaved.length; i++) {
+			if (FMsaved[i] == null) {
 				FMsaved[i] = FM;
 			}
 		}
@@ -151,16 +156,16 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public void moveForward() {
-		if (mode == 0){ // Si es AM
-			if (AM < 1610){// Si es menor al maximo suma 10 a la estacion actual
+		if (mode == 0) { // Si es AM
+			if (AM < 1610) {// Si es menor al maximo suma 10 a la estacion actual
 				AM += 10;
-			} else if (AM == 1610){ // Si esta en la estacion maxima regresa a la estacion mas pequeña
+			} else if (AM == 1610) { // Si esta en la estacion maxima regresa a la estacion mas pequeña
 				AM = 530;
 			}
-		} else if (mode == 1){// Si es FM
-			if (FM < 107.9){// Si es menor a la estacion maxima, suma 10 a la estacion actual
+		} else if (mode == 1) {// Si es FM
+			if (FM < 107.9) {// Si es menor a la estacion maxima, suma 10 a la estacion actual
 				FM += 0.2;
-			} else if (FM == 107.9){// Si esta en la estacion maxima, regresa a la estacion mas pequeña
+			} else if (FM == 107.9) {// Si esta en la estacion maxima, regresa a la estacion mas pequeña
 				FM = 87.9;
 			}
 		}
@@ -173,16 +178,16 @@ public class Radio implements IRadio {
 	 */
 	@Override
 	public void moveBackward() {
-		if (mode == 0){ // Si es AM
-			if (AM > 530){// Si es menor al maximo suma 10 a la estacion actual
+		if (mode == 0) { // Si es AM
+			if (AM > 530) {// Si es menor al maximo suma 10 a la estacion actual
 				AM -= 10;
-			} else if (AM == 530){ // Si esta en la estacion maxima regresa a la estacion mas pequeña
+			} else if (AM == 530) { // Si esta en la estacion maxima regresa a la estacion mas pequeña
 				AM = 1610;
 			}
-		} else if (mode == 1){// Si es FM
-			if (FM > 87.9){// Si es menor a la estacion maxima, suma 10 a la estacion actual
+		} else if (mode == 1) {// Si es FM
+			if (FM > 87.9) {// Si es menor a la estacion maxima, suma 10 a la estacion actual
 				FM -= 0.2;
-			} else if (FM == 87.9){// Si esta en la estacion maxima, regresa a la estacion mas pequeña
+			} else if (FM == 87.9) {// Si esta en la estacion maxima, regresa a la estacion mas pequeña
 				FM = 107.9;
 			}
 		}
