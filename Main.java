@@ -74,25 +74,23 @@ public class Main {
                     break;
                 case 2:
                     // Mover
-                	radio.moveForward();
+                    radio.moveForward();
                     break;
                 case 3:
                     // Guardar emisora
-                	if (radio.getActualMode() == 0) {
-                		radio.saveInAM();
-                	}
-                	if (radio.getActualMode() == 1) {
-                		radio.saveInFM();
-                	}
+                    if (radio.getActualMode() == 0) {
+                        radio.saveInAM();
+                    } else if (radio.getActualMode() == 1) {
+                        radio.saveInFM();
+                    }
                     break;
                 case 4:
                     // Mostrar emisoras guardadas
-                	if (radio.getActualMode() == 0) {
-                		
-                	}
-                	if (radio.getActualMode() == 1) {
-                		
-                	}
+                    if (radio.getActualMode() == 0) {
+
+                    } else if (radio.getActualMode() == 1) {
+
+                    }
                     break;
                 default:
                     // Apagar el radio.
