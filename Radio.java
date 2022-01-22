@@ -6,7 +6,7 @@
  * @version 1.0
  */
 public class Radio implements IRadio {
-	private boolean status = false;
+	private boolean status = false;// Si es false es radio apagada y si es radio true esta encendida
 	private int mode; // 0 = AM, 1 = FM, default = AM
 	private int AM = 530; // Defau;t emisora = 530
 	private double FM = 87.9; // Default emisora = 87.9
