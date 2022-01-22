@@ -48,15 +48,15 @@ public class Interaction {
     /**
      * MÃ©todo que muestra las acciones que se pueden realizar en la radio.
      */
-    private void menu_radio(String mensaje) {
-        if (mensaje.equals("AM")) {
-            System.out.println("Usted está escuchando la radio en frecuencia AM.\n"
-            		+ "Menu de radio:\n" + 
-            		"1. Cambiar de AM a FM.");
+    private void menu_radio(String message) {
+        if (message.equals("AM")) {
+            System.out.println("Usted estï¿½ escuchando la radio en frecuencia AM.\n"
+                    + "Menu de radio:\n" +
+                    "1. Cambiar de AM a FM.");
         } else {
-            System.out.println("Usted está escuchando la radio en frecuencia FM.\n"
-            		+ "Menu de radio:\n" + 
-            		"1. Cambiar de FM a AM.");
+            System.out.println("Usted estï¿½ escuchando la radio en frecuencia FM.\n"
+                    + "Menu de radio:\n" +
+                    "1. Cambiar de FM a AM.");
         }
 
         System.out.println("2. Cambiar radio hacia arriba.\n" +

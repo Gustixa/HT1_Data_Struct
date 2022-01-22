@@ -107,9 +107,9 @@ public class Main {
      * 
      * @param tiempo_espera: int
      */
-    private static void esperar(int tiempo_espera) {
+    private static void wait(int wait_time) {
         try {
-            Thread.sleep(tiempo_espera);
+            Thread.sleep(wait_time);
         } catch (Exception e) {
             System.out.println("Algo salio malo...");
         }
