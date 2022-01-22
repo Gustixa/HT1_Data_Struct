@@ -1,7 +1,7 @@
 /**
  * Clase que simula el funcionamiento de una radio.
  * 
- * @author Samuel Argueta, Rafael Pappa, Sebastian Estrada.
+ * @author Samuel Argueta, Rafael Dubois, Sebastian Estrada.
  * @since 1.0, 19/01/2022
  * @version 1.0
  */

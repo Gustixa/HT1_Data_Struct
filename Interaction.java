@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
  * Esta clase sirve para poder interactuar, de manera textual, con el usuario
  * del simulador.
  * 
- * @author Samuel Argueta, Rafael Pappa, Sebastian Estrada.
+ * @author Samuel Argueta, Rafael Dubois, Sebastian Estrada.
  * @since 1.0, 19/01/2022
  * @version 1.0
  */
@@ -31,35 +31,38 @@ public class Interaction {
      */
 
     private void start_options() {
-        System.out.println("Opciones de inicio");
-        System.out.println("1. Encender la radio");
-        System.out.println("2. Salir.");
+        System.out.println("Opciones de inicio:");
+        System.out.println("1. Encender la radio.");
+        System.out.println("2. Salir.\n");
     }
 
     /**
      * MÃ©todo que muestra las emisoras que puede escoger el usuario.
      */
     private void radio_options() {
-        System.out.println("Tipos de emisora");
-        System.out.println("1. AM");
-        System.out.println("2. FM");
+        System.out.println("Tipos de frecuencia:");
+        System.out.println("1. AM.");
+        System.out.println("2. FM.");
     }
 
     /**
      * MÃ©todo que muestra las acciones que se pueden realizar en la radio.
      */
     private void menu_radio(String mensaje) {
-        System.out.println("Menu de radio");
         if (mensaje.equals("AM")) {
-            System.out.println("1. Cambiar de AM a FM");
+            System.out.println("Usted está escuchando la radio en frecuencia AM.\n"
+            		+ "Menu de radio:\n" + 
+            		"1. Cambiar de AM a FM.");
         } else {
-            System.out.println("1. Cambiar de FM a AM");
+            System.out.println("Usted está escuchando la radio en frecuencia FM.\n"
+            		+ "Menu de radio:\n" + 
+            		"1. Cambiar de FM a AM.");
         }
 
-        System.out.println("2. Cambiar radio hacia arriba\n" +
-                "3. Guardar emisora\n" +
-                "4. Mostrar emisoras guardadas\n" +
-                "5. Apagar el radio\n");
+        System.out.println("2. Cambiar radio hacia arriba.\n" +
+                "3. Guardar emisora.\n" +
+                "4. Mostrar emisoras guardadas.\n" +
+                "5. Apagar el radio.\n");
 
     }
 
