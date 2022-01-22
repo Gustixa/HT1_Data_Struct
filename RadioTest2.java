@@ -18,9 +18,9 @@ public class RadioTest2 {
 	void testChangeMode() {
 		Radio myRadio = new Radio();
 		myRadio.changeMode();
-		assertEquals(true, myRadio.getStatus());
+		assertEquals(true, myRadio.getActualMode());
 		myRadio.changeMode();
-		assertEquals(false, myRadio.getStatus());
+		assertEquals(false, myRadio.getActualMode());
 	}
 
 }
